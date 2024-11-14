@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investor Portal Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="nav-buttons">
+      <button onclick="showSection('lead')">Lead</button>
+      <button onclick="showSection('earning')">Earning</button>
+      <button onclick="showSection('account')">Account</button>
+    </div>
+    <div class="dropdown">
+      <button class="user-icon">User <span>&#9662;</span></button>
+      <div class="dropdown-content">
+        <a href="https://simonwangai17.github.io/jamiitels/" onclick="logout()">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard Container -->
+  <div class="dashboard-container">
+    <!-- Lead Section -->
+    <div id="lead" class="section" style="display: block;">
+      <div class="status-cards">
+        <div class="status-card">
+          <h3>Lead</h3>
+          <p id="leadCount">3</p>
+        </div>
+        <div class="status-card">
+          <h3>Earning</h3>
+          <p id="earningBalance">Ksh 0</p>
+        </div>
+        <div class="status-card">
+          <h3>Payout Countdown</h3>
+          <p id="payoutCountdown">24 hours</p>
+        </div>
+      </div>
+      <table class="form-list">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="leadList">
+          <!-- Dummy data -->
+          <tr>
+            <td>Loren Mwangi</td>
+            <td>Loren1</td>
+            <td><button onclick="showPaymentInstructions()">Activate</button></td>
+          </tr>
+          <tr>
+            <td>Simon Wangai</td>
+            <td>Simon01</td>
+            <td style="color: green;">Active</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- Mpesa Payment Instructions Modal -->
+<div id="mpesaModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h4>Mpesa Payment Instructions</h4>
+    <ol>
+      <li>Open Mpesa Menu 📱</li>
+      <li>Select Lipa na Mpesa > Buy Goods and Services.</li>
+      <li>Enter Till Number: <strong>4951640</strong> 🔢</li>
+      <li>Enter Amount: <strong>Ksh 200</strong> 💰</li>
+      <li>Confirm Details and enter your Mpesa PIN 🔑</li>
+      <li>Press OK to complete ✅</li>
+    </ol>
+    <p>After Payment: You’ll receive a confirmation message from Mpesa with a Transaction Code. Enter this code below to confirm your payment.</p>
+    <input type="text" id="mpesaCode" placeholder="Enter Mpesa Transaction Code">
+    <button onclick="verifyMpesaCode()">Verify</button>
+  </div>
+</div>
+
+
+    <!-- Earning Section -->
+    <div id="earning" class="section">
+      <div class="nav-buttons-section">
+        <button onclick="showEarningSection('surveys')">Surveys</button>
+        <button onclick="showEarningSection('tokens')">Tokens</button>
+        <button onclick="showEarningSection('referrals')">Referrals</button>
+      </div>
+
+      <div id="surveys" class="sub-section">
+        <h4>Available Surveys</h4>
+        <table class="form-list">
+          <thead>
+            <tr>
+              <th>Survey Name</th>
+              <th>Payout</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Survey A</td>
+              <td>Ksh 10</td>
+              <td><button>Start</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="tokens" class="sub-section">
+        <h4>Available Tokens</h4>
+        <table class="form-list">
+          <thead>
+            <tr>
+              <th>Token Name</th>
+              <th>Payout</th>
+              <th>Grab</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Token A</td>
+              <td>Ksh 15</td>
+              <td><button>Grab</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="referrals" class="sub-section">
+        <h4>Your Referral Code: REF-001</h4>
+        <table class="form-list">
+          <thead>
+            <tr>
+              <th>Referred Client</th>
+              <th>Status</th>
+              <th>Contact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Loren Mwangi</td>
+              <td>Inactive</td>
+              <td><button>Contact</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Account Section -->
+    <div id="account" class="section">
+      <div class="nav-buttons-section">
+        <button onclick="showAccountSection('profile')">Profile</button>
+        <button onclick="showAccountSection('funds')">Funds</button>
+        <button onclick="showAccountSection('addClient')">Add Client</button>
+      </div>
+
+      <div id="profile" class="sub-section profile-form">
+        <h4>Update Profile</h4>
+        <label>Name: <input type="text" placeholder="Enter your name"></label>
+        <label>Username: <input type="text" placeholder="Enter your username"></label>
+        <label>Email: <input type="email" placeholder="Enter your email"></label>
+        <label>Phone: <input type="tel" placeholder="Enter your phone"></label>
+        <button onclick="requestProfileUpdate()">Update</button>
+      </div>
+
+      
+      <div class="funds-section">
+        <button id="accountBalanceBtn" class="funds-button" onclick="showAccountBalance()">Account Balance</button>
+        <button id="withdrawBtn" class="funds-button" onclick="showWithdrawForm()">Withdraw</button>
+      
+        <!-- Account Balance Display -->
+        <div id="accountBalance" class="balance-card" style="display: none;">
+          <h4>Your Account Balance</h4>
+          <p>Ksh <span id="balanceAmount">50</span></p>
+          <h5>Recent Earnings</h5>
+          <table class="earnings-report">
+            <tr>
+              <th>Source</th>
+              <th>Payout Amount</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>Survey</td>
+              <td>Ksh 0</td>
+              <td>Paid</td>
+            </tr>
+            <tr>
+              <td>Token</td>
+              <td>Ksh 0</td>
+              <td>Paid</td>
+            </tr>
+            <tr>
+              <td>Referral</td>
+              <td>Ksh 50</td>
+              <td>Unpaid</td>
+            </tr>
+          </table>
+        </div>
+      
+        <!-- Withdrawal Form -->
+        <div id="withdrawForm" class="withdraw-card" style="display: none;">
+          <h4>Withdraw Funds</h4>
+          <input type="text" id="withdrawPhone" placeholder="Enter Phone Number">
+          <input type="number" id="withdrawAmount" placeholder="Enter Amount">
+          <button onclick="requestPayout()">Request Payout</button>
+        </div>
+      </div>
+      
+
+      <div id="addClient" class="sub-section">
+        <h4>Add a New Client</h4>
+        <p><a href="https://simonwangai17.github.io/regstration/">Add Client Here</a></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
