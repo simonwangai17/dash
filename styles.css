@@ -1,0 +1,289 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #b59f7e;
+    padding: 10px 20px;
+    color: white;
+  }
+  
+  .navbar .nav-buttons button,
+  .user-icon {
+    background-color: #f2b200;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .navbar .nav-buttons button:hover,
+  .user-icon:hover {
+    background-color: #f28b00;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Dashboard Container */
+  .dashboard-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+   /* Lead Section */
+   .status-cards {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .status-card {
+    flex: 1;
+    background-color: #b59f7e;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .form-list {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .form-list th,
+  .form-list td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+
+  /* Popup Modal for Payment Instructions */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .modal-content h3 {
+    color: #333;
+  }
+
+  .close-button {
+    background-color: #f2b200;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    float: right;
+    border-radius: 5px;
+  }
+  
+  /* Section Containers */
+  .section {
+    display: none;
+    padding: 20px;
+  }
+  
+  /* Earning and Account Sections Styling */
+  .nav-buttons-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .nav-buttons-section button {
+    padding: 10px 20px;
+    background-color: #f2b200;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .nav-buttons-section button:hover {
+    background-color: #f28b00;
+  }
+  
+  .sub-section {
+    padding: 15px;
+    background-color: #faf2df;
+    border: 1px solid #f2b200;
+    border-radius: 8px;
+    margin-top: 10px;
+    display: none;
+  }
+  
+  /* Profile Form */
+  .profile-form label {
+    display: block;
+    margin: 10px 0 5px;
+  }
+  
+  .profile-form input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    text-align: left;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modal-content h4 {
+    margin-top: 0;
+  }
+  
+  .modal-content ol {
+    margin: 10px 0;
+    padding-left: 20px;
+  }
+  
+  .modal-content input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .funds-button {
+    background-color: #f4a261;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .funds-button:hover {
+    background-color: #e76f51;
+  }
+  
+  .balance-card, .withdraw-card {
+    display: none;
+    background-color: #faf3e0;
+    border: 1px solid #e0a96d;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .balance-card h4, .withdraw-card h4 {
+    color: #e76f51;
+  }
+  
+  .earnings-report {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+  }
+  
+  .earnings-report th, .earnings-report td {
+    border: 1px solid #e0a96d;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .earnings-report th {
+    background-color: #f4a261;
+    color: white;
+  }
+  
+  .withdraw-card input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #e0a96d;
+    border-radius: 5px;
+  }
+  
