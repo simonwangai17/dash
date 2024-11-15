@@ -369,3 +369,21 @@ function navigateToSection(mainSection, subSection) {
     }
   }
 }
+// Page Loader Script
+window.onload = function () {
+  setTimeout(() => {
+    document.getElementById('pageLoader').style.display = 'none';
+    document.getElementById('mainContent').style.display = 'block';
+  }, 5000); // 5 seconds
+};
+// Display the sweet popup message after 5 seconds
+window.onload = function () {
+  setTimeout(() => {
+    document.getElementById('sweetPopup').style.display = 'flex'; // Show popup
+  }, 5000); // 5 seconds delay
+};
+
+// Function to close the popup
+function closeSweetPopup() {
+  document.getElementById('sweetPopup').style.display = 'none'; // Hide popup
+}
