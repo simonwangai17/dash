@@ -654,3 +654,62 @@ button:hover {
 .popup-content {
   text-align: center;
 }
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar-center {
+    display: none;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .dashboard-container {
+    padding: 10px;
+  }
+
+  .status-cards {
+    flex-direction: column;
+  }
+
+  .status-card {
+    margin: 10px 0;
+  }
+
+  .footer-container {
+    flex-direction: column;
+  }
+
+  .footer-column {
+    margin: 10px 0;
+  }
+
+  .modal-content {
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-left .company-name {
+    font-size: 14px;
+  }
+
+  .status-card h3 {
+    font-size: 16px;
+  }
+
+  .status-card p {
+    font-size: 14px;
+  }
+
+  table th,
+  table td {
+    font-size: 14px;
+  }
+
+  .footer-column h4 {
+    font-size: 16px;
+  }
+}
