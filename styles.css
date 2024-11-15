@@ -1,67 +1,120 @@
 /* General Styles */
-body {
+html, body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+    background: linear-gradient(90deg, #8B4513 50%, #D2691E 50%);
+    color: #030303;
     margin: 0;
+    height: 100%;
   }
+
   
-  /* Navbar */
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #b59f7e;
-    padding: 10px 20px;
-    color: white;
-  }
-  
-  .navbar .nav-buttons button,
-  .user-icon {
-    background-color: #f2b200;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    margin: 0 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-  }
-  
-  .navbar .nav-buttons button:hover,
-  .user-icon:hover {
-    background-color: #f28b00;
-  }
-  
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown-content a:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #bd9273; /* Set to brown */
+  color: rgb(7, 6, 6);
+  border-bottom: 1px solid #9c775c;
+}
+
+/* Left section: Logo and Company Name */
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  height: 30px;
+  margin-right: 10px;
+}
+
+
+/* Company Name Styling */
+.company-name {
+  color: #fff; /* Set color to white */
+  font-weight: bold;
+  font-size: 24px;
+  overflow: hidden; /* Hide overflow text during typing */
+  white-space: nowrap; /* Prevent text from wrapping */
+  border-right: 2px solid white; /* Cursor effect */
+  animation: typing 3s steps(30, end), blink-cursor 0.75s step-end infinite;
+}
+
+/* Typing effect */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Cursor blinking effect */
+@keyframes blink-cursor {
+  from, to { border-color: transparent; }
+  50% { border-color: white; }
+}
+
+
+/* Center section: Navbar Buttons */
+.navbar-center {
+  display: flex;
+  gap: 15px;
+}
+
+.navbar-center button {
+  background: none;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  color: rgba(6, 6, 6, 0.783);
+}
+
+.navbar-center button:hover,
+.navbar-center .active {
+  color: #FFD700; /* Active color: gold */
+  font-weight: bold;
+}
+
+/* Right section: User Icon and Dropdown */
+.navbar-right {
+  position: relative;
+}
+
+.user-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  min-width: 150px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  padding: 10px;
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f0f0;
+}
+
   
   /* Dashboard Container */
   .dashboard-container {
@@ -286,4 +339,318 @@ body {
     border: 1px solid #e0a96d;
     border-radius: 5px;
   }
-  
+  /* Navbar Logo and Name */
+.company-logo {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+
+.logo-image {
+  height: 30px;
+  margin-right: 10px;
+}
+
+.company-name {
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+}
+
+/* Footer Styling */
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: #d8bebe;
+  padding: 20px;
+}
+
+.footer-column {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.footer-column h4 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.footer-column p,
+.footer-column ul {
+  color: #555;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin: 5px 0;
+}
+.footer-column ul li a {
+  color: #007BFF; /* Link color */
+  text-decoration: none; /* Remove underline */
+}
+
+.footer-column ul li a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+/* Example icon styling */
+.footer-column i {
+  color: #555;          /* Change icon color */
+  font-size: 1.2em;     /* Adjust icon size */
+  margin-right: 8px;    /* Add space between icon and text */
+}
+
+/* Style for links within the footer */
+.footer-column a {
+  color: #007bff;       /* Set link color */
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  color: #0056b3;       /* Change color on hover */
+  text-decoration: underline;
+}
+/* Style the icons */
+.footer-column ul li i {
+  color: #555;           /* Icon color */
+  margin-right: 10px;    /* Space between icon and text */
+  font-size: 1.2em;      /* Icon size */
+}
+
+/* Style the links */
+.footer-column ul li a {
+  text-decoration: none;
+  color: #007bff;        /* Link color */
+  font-size: 1em;        /* Text size */
+}
+
+.footer-column ul li a:hover {
+  color: #0056b3;        /* Hover color for links */
+  text-decoration: underline;
+}
+/* Social Media Icons in About Us */
+.social-icons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-start; /* Align icons to the start of the column */
+  gap: 10px; /* Space between icons */
+}
+
+.social-icons a {
+  text-decoration: none;
+  color: #555;       /* Default icon color */
+  font-size: 1.5em;  /* Icon size */
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #007bff;    /* Hover color for icons */
+}
+#payoutCountdown {
+  font-size: 1.2em;
+  font-weight: light;
+  color: #111;
+}
+
+#payoutCountdown span {
+  font-size: 1.5em;
+}
+
+/* Style for Survey Images */
+.survey-image {
+  width: 50px;  /* Adjust the size as needed */
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: auto;
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.countdown {
+  font-size: 18px;
+  font-weight: bold;
+}
+.modal {
+  display: none; /* Hide modals by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+#progressA {
+  width: 0%;
+  height: 20px;
+  background-color: #4CAF50;
+}
+
+#countdownB {
+  font-size: 18px;
+}
+/* Style for the dropdown container */
+/* General button styling for Funds section */
+.funds-button {
+  padding: 5px 10px;
+  background-color: black; /* Set background color to black */
+  color: white; /* Set text color to white for contrast */
+  border: none; /* Remove borders */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+/* Add hover effect for better interactivity */
+.funds-button:hover {
+  background-color: #333; /* Slightly lighter shade of black on hover */
+}
+
+#fundsDropdown {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for each dropdown item */
+#fundsDropdown button {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+  padding: 10px;
+  border: none;
+  background-color: grey;
+  cursor: pointer;
+  text-align: left;
+}
+
+/* Hover effect for buttons */
+#fundsDropdown button:hover {
+  background-color: #e6de3cd7;
+}
+/* Table styling */
+#referredCustomersTable {
+  border: 1px solid #ddd;
+  font-family: Arial, sans-serif;
+  width: 100%;
+  margin: 20px 0;
+  border-collapse: collapse;
+}
+
+#referredCustomersTable th, 
+#referredCustomersTable td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+#referredCustomersTable th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+#referredCustomersTable tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Button styling */
+button {
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+/* General button styling */
+.funds-button {
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+.funds-button:hover {
+  background-color: #333;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.popup-content {
+  text-align: center;
+}

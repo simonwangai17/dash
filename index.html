@@ -5,22 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Investor Portal Dashboard</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 <body>
   <!-- Navbar -->
-  <div class="navbar">
-    <div class="nav-buttons">
-      <button onclick="showSection('lead')">Lead</button>
-      <button onclick="showSection('earning')">Earning</button>
-      <button onclick="showSection('account')">Account</button>
-    </div>
-    <div class="dropdown">
-      <button class="user-icon">User <span>&#9662;</span></button>
-      <div class="dropdown-content">
-        <a href="https://simonwangai17.github.io/jamiitels/" onclick="logout()">Logout</a>
-      </div>
+<div class="navbar">
+  <!-- Company Logo and Name on Left Side -->
+  <div class="navbar-left">
+    <img src="logo.png" alt="Company Logo" class="logo-image">
+    <span class="company-name">Jamii Investors Agencies</span>
+  </div>
+  
+
+  <!-- Navbar Buttons in Center -->
+  <div class="navbar-center">
+    <button onclick="showSection('lead')">Lead</button>
+    <button onclick="showSection('earning')">Earning</button>
+    <button onclick="showSection('account')">Account</button>
+  </div>
+
+  <!-- User Icon and Dropdown on Right Side -->
+  <div class="navbar-right dropdown">
+    <i class="fa-solid fa-user"></i><span>&#9662;</span>
+    <div class="dropdown-content">
+      <a href="#" onclick="showProfile()">Profile</a>
+      <a href="https://simonwangai17.github.io/jamiitels/" onclick="logout()">Logout</a>
     </div>
   </div>
+</div>
+
 
   <!-- Dashboard Container -->
   <div class="dashboard-container">
@@ -37,7 +51,8 @@
         </div>
         <div class="status-card">
           <h3>Payout Countdown</h3>
-          <p id="payoutCountdown">24 hours</p>
+          <p id="payoutCountdown">24:00:00
+  </p>
         </div>
       </div>
       <table class="form-list">
@@ -99,56 +114,90 @@
               <th>Survey Name</th>
               <th>Payout</th>
               <th>Status</th>
+              <th>Survey Image</th>  <!-- New Column for Image -->
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Survey A</td>
-              <td>Ksh 10</td>
-              <td><button>Start</button></td>
+        <td>Ksh 10</td>
+        <td><span>Available</span></td>
+          
+        <td>
+          <img src="survey_a_image.jpg" alt="Survey A" class="survey-image"></td>
+          <td>
+          <!-- Redirect button -->
+          <a href="survey_page.html?survey_id=1">
+            <button>Start</button>
+          </a>
+          
+        </td>
+              
             </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div id="tokens" class="sub-section">
-        <h4>Available Tokens</h4>
-        <table class="form-list">
-          <thead>
             <tr>
-              <th>Token Name</th>
-              <th>Payout</th>
-              <th>Grab</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Token A</td>
+              <td>Survey B</td>
               <td>Ksh 15</td>
-              <td><button>Grab</button></td>
+              <td><span>Available</span></td>
+              <td><img src="survey_b_image.jpg" alt="Survey B" class="survey-image"></td>
+                <!-- Image for Survey B -->
+                <td>
+                  <!-- Redirect button -->
+                  <a href="survey_page.html?survey_id=2">
+                    <button>Start</button>
+                  </a>
+                </td>
             </tr>
           </tbody>
         </table>
       </div>
+      
 
+      
       <div id="referrals" class="sub-section">
         <h4>Your Referral Code: REF-001</h4>
-        <table class="form-list">
-          <thead>
-            <tr>
-              <th>Referred Client</th>
-              <th>Status</th>
-              <th>Contact</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Loren Mwangi</td>
-              <td>Inactive</td>
-              <td><button>Contact</button></td>
-            </tr>
-          </tbody>
-        </table>
+        <!-- Referred Customers Table -->
+<!-- Referred Customers Table -->
+<table id="referredCustomersTable" border="1" style="width: 100%; border-collapse: collapse; text-align: left;">
+  <thead>
+      <tr style="background-color: #f2f2f2;">
+          <th style="padding: 10px;">Name</th>
+          <th style="padding: 10px;">Phone</th>
+          <th style="padding: 10px;">Reference Code</th>
+          <th style="padding: 10px; text-align: center;">Action</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="padding: 10px;">John Doe</td>
+          <td style="padding: 10px;">+123456789</td>
+          <td style="padding: 10px;">REF12345</td>
+          <td style="padding: 10px; text-align: center;">
+              <button style="padding: 5px 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;" 
+                      onclick="showContactModal('John Doe', '+123456789', 'REF12345')">Contact</button>
+          </td>
+      </tr>
+      <tr>
+          <td style="padding: 10px;">Jane Smith</td>
+          <td style="padding: 10px;">+987654321</td>
+          <td style="padding: 10px;">REF67890</td>
+          <td style="padding: 10px; text-align: center;">
+              <button style="padding: 5px 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;" 
+                      onclick="showContactModal('Jane Smith', '+987654321', 'REF67890')">Contact</button>
+          </td>
+      </tr>
+  </tbody>
+</table>
+<!-- Contact Modal -->
+<div id="contactModal" style="display: none;">
+  <div class="modal-content">
+      <h2>Customer Details</h2>
+      <p><strong>Name:</strong> <span id="customerName"></span></p>
+      <p><strong>Phone:</strong> <span id="customerPhone"></span></p>
+      <p><strong>Reference Code:</strong> <span id="customerRefCode"></span></p>
+      <button onclick="closeContactModal()">Close</button>
+  </div>
+</div>
+
       </div>
     </div>
 
@@ -156,7 +205,7 @@
     <div id="account" class="section">
       <div class="nav-buttons-section">
         <button onclick="showAccountSection('profile')">Profile</button>
-        <button onclick="showAccountSection('funds')">Funds</button>
+        <button onclick="showAccountSection('fundsDropdown')">Funds</button>
         <button onclick="showAccountSection('addClient')">Add Client</button>
       </div>
 
@@ -168,47 +217,32 @@
         <label>Phone: <input type="tel" placeholder="Enter your phone"></label>
         <button onclick="requestProfileUpdate()">Update</button>
       </div>
-
-      
-      <div class="funds-section">
-        <button id="accountBalanceBtn" class="funds-button" onclick="showAccountBalance()">Account Balance</button>
-        <button id="withdrawBtn" class="funds-button" onclick="showWithdrawForm()">Withdraw</button>
-      
-        <!-- Account Balance Display -->
-        <div id="accountBalance" class="balance-card" style="display: none;">
-          <h4>Your Account Balance</h4>
-          <p>Ksh <span id="balanceAmount">50</span></p>
-          <h5>Recent Earnings</h5>
-          <table class="earnings-report">
-            <tr>
-              <th>Source</th>
-              <th>Payout Amount</th>
-              <th>Status</th>
-            </tr>
-            <tr>
-              <td>Survey</td>
-              <td>Ksh 0</td>
-              <td>Paid</td>
-            </tr>
-            <tr>
-              <td>Token</td>
-              <td>Ksh 0</td>
-              <td>Paid</td>
-            </tr>
-            <tr>
-              <td>Referral</td>
-              <td>Ksh 50</td>
-              <td>Unpaid</td>
-            </tr>
-          </table>
+<!-- Funds section -->
+      <div id="fundsDropdown" class="sub-section" style="display: none;">
+        <button class="funds-button" onclick="toggleFundsOptions()">Funds</button>
+        <div id="fundsOptions" style="display: none; margin-top: 10px;">
+          <button class="funds-button" onclick="viewBalancePopup()">View Balance</button>
+          <button class="funds-button" onclick="showWithdrawForm()">Withdraw</button>
         </div>
+      </div>
+      <!-- Account Balance Pop-up -->
+  <div id="balancePopup" class="popup" style="display: none;">
+    <div class="popup-content">
+      <h4>Account Balance</h4>
+      <p>Agent Name: John Doe</p>
+      <p>Balance: Ksh <span id="popupBalanceAmount">50</span></p>
+      <button onclick="generateReport()">Generate Report</button>
+      <button onclick="closePopup('balancePopup')">Close</button>
+    </div>
+  </div>
       
         <!-- Withdrawal Form -->
         <div id="withdrawForm" class="withdraw-card" style="display: none;">
           <h4>Withdraw Funds</h4>
-          <input type="text" id="withdrawPhone" placeholder="Enter Phone Number">
-          <input type="number" id="withdrawAmount" placeholder="Enter Amount">
-          <button onclick="requestPayout()">Request Payout</button>
+          <label>Name: <input type="text" id="withdrawName" placeholder="Enter Name"></label>
+          <label>Mpesa Number: <input type="text" id="mpesaNumber" placeholder="Enter Mpesa Number"></label>
+          <label>Amount: <input type="number" id="withdrawAmount" placeholder="Enter Amount"></label>
+          <button onclick="submitWithdrawal()">Submit</button>
         </div>
       </div>
       
@@ -219,6 +253,48 @@
       </div>
     </div>
   </div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-container">
+    <!-- About Us Column -->
+    <div class="footer-column">
+      <h4>About Us</h4>
+      <p>Jamii Investors Agencies is committed to providing sustainable earning<br> opportunities 
+        through surveys, tokens, and referrals. Our mission is to <br>empower individuals by 
+        enabling them to earn from simple, accessible tasks.</p>
+    </div>
+
+ 
+    <!-- Company Details Column -->
+    <div class="footer-column">
+      <h4>Contact Us</h4>
+      <p><i class="fas fa-map-marker-alt"></i> 291-10101, <br>Karatina, Nyeri, <br>Kenya</p><br>
+      <p>
+        <i class="fas fa-phone"></i> 
+         
+        <a href="tel:+254791665923">+254791665923</a>
+      </p><br>
+      <p>
+        <i class="fas fa-envelope"></i> 
+        
+        <a href="mailto:jamiiagencies@gmail.com?subject=Inquiry%20from%20Website">jamiiagencies@gmail.com</a>
+      </p>
+    </div>
+
+    <!-- Ways to Earn Column -->
+    <div class="footer-column">
+      <h4>Ways to Earn</h4>
+      <ul>
+        <li><i class="fas fa-poll"></i><a href="#surveys" onclick="navigateToSection('earning', 'surveys')">Surveys</a></li>
+        <li><i class="fas fa-coins"></i><a href="#tokens" onclick="navigateToSection('earning', 'tokens')">Tokens</a></li>
+        <li><i class="fas fa-users"></i><a href="#referrals" onclick="navigateToSection('earning', 'referrals')">Referral</a></li>
+      </ul>
+    </div>
+  </div>
+ 
+</footer>
+
 
   <script src="scripts.js"></script>
 </body>
