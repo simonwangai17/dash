@@ -348,3 +348,24 @@ function submitWithdrawal() {
 function generateReport() {
   alert("Report generated successfully!");
 }
+function navigateToSection(mainSection, subSection) {
+  // Hide all main sections
+  const sections = document.querySelectorAll('.section');
+  sections.forEach(section => section.style.display = 'none');
+
+  // Show the main section
+  const main = document.getElementById(mainSection);
+  if (main) {
+    main.style.display = 'block';
+  }
+
+  // If a sub-section is specified, show it
+  if (subSection) {
+    const sub = document.getElementById(subSection);
+    if (sub) {
+      const subSections = main.querySelectorAll('.sub-section');
+      subSections.forEach(section => section.style.display = 'none');
+      sub.style.display = 'block';
+    }
+  }
+}
