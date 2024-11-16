@@ -387,3 +387,4 @@ window.onload = function () {
 function closeSweetPopup() {
   document.getElementById('sweetPopup').style.display = 'none'; // Hide popup
 }
+window.location.href = 'https://simonwangai17.github.io/token/';
