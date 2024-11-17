@@ -120,7 +120,9 @@
       <div class="nav-buttons-section">
         <button onclick="showEarningSection('surveys')">Surveys</button>
         <button onclick="window.location.href='https://simonwangai17.github.io/token/'">Tokens</button>
-        <button onclick="showEarningSection('referrals')">Referrals</button>
+        <button onclick="window.location.href='https://simonwangai17.github.io/referral/'">Referrals</button>
+
+
       </div>
 
       <div id="surveys" class="sub-section">
@@ -182,53 +184,8 @@
       
 
       
-      <div id="referrals" class="sub-section">
-        <h4>Your Referral Code: REF-</h4>
-        <!-- Referred Customers Table -->
-<!-- Referred Customers Table -->
-<table id="referredCustomersTable" border="1" style="width: 100%; border-collapse: collapse; text-align: left;">
-  <thead>
-      <tr style="background-color: #f2f2f2;">
-          <th style="padding: 10px;">Name</th>
-          <th style="padding: 10px;">Phone</th>
-          <th style="padding: 10px;">Reference Code</th>
-          <th style="padding: 10px; text-align: center;">Action</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="padding: 10px;">Loren Mwangi</td>
-          <td style="padding: 10px;">0706018491</td>
-          <td style="padding: 10px;">REF146399</td>
-          <td style="padding: 10px; text-align: center;">
-              <button style="padding: 5px 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;" 
-                      onclick="showContactModal('Loren Mwangi', '0706018491', 'RREF146399')">Contact</button>
-          </td>
-      </tr>
-      <tr>
-          <td style="padding: 10px;">Simon Wangai</td>
-          <td style="padding: 10px;">0700273841</td>
-          <td style="padding: 10px;">REF146398</td>
-          <td style="padding: 10px; text-align: center;">
-              <button style="padding: 5px 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;" 
-                      onclick="showContactModal('Simon Wangai', '0700273841', 'REF146398')">Contact</button>
-          </td>
-      </tr>
-  </tbody>
-</table>
-<!-- Contact Modal -->
-<div id="contactModal" style="display: none;">
-  <div class="modal-content">
-      <h2>Customer Details</h2>
-      <p><strong>Name:</strong> <span id="customerName"></span></p>
-      <p><strong>Phone:</strong> <span id="customerPhone"></span></p>
-      <p><strong>Reference Code:</strong> <span id="customerRefCode"></span></p>
-      <button onclick="closeContactModal()">Close</button>
-  </div>
-</div>
-
       </div>
-    </div>
+      </div>
 
     <!-- Account Section -->
     <div id="account" class="section">
